@@ -40,8 +40,6 @@ preview.addEventListener('keydown', event => {
 })
 
 const settings = window.oferta
-const checkout = document.querySelector('#checkout')
-const status = document.querySelector('#status')
 
 function httpsUrl(value) {
   try {
@@ -70,9 +68,6 @@ const consumer = httpsUrl(settings.prawaKonsumenta)
 const contact = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(settings.email) ? settings.email : ''
 const cart = httpsUrl(settings.koszyk)
 
-setText('price', settings.cena)
-setText('delivery', settings.dostawa)
-setText('delivery-faq', settings.dostawa)
 setText('seller', settings.sprzedawca)
 setLink('contact', contact, contact ? `mailto:${contact}` : '')
 setLink('terms', 'Regulamin sklepu', terms)
@@ -80,10 +75,9 @@ setLink('privacy', 'Polityka prywatności', privacy)
 setLink('consumer', 'Prawa konsumenta', consumer)
 
 if (cart) {
-  checkout.href = cart
-  status.hidden = true
-} else {
-  checkout.addEventListener('click', () => status.focus({preventScroll: true}))
+  for (const link of document.querySelectorAll('[data-checkout]')) {
+    link.href = cart
+  }
 }
 
 if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {

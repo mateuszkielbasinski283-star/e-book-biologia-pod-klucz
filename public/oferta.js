@@ -1,8 +1,6 @@
-// Uzupełnij po skonfigurowaniu produktu i automatycznej wysyłki PDF w platformie sprzedażowej.
+// Dane zakupu i sprzedawcy.
 window.oferta = {
-  koszyk: '', // Pełny adres HTTPS do koszyka Naffy, Easycart lub innej platformy.
-  cena: '', // Potwierdzona cena w PLN, np. w formacie „00,00 zł”.
-  dostawa: '', // Potwierdzona instrukcja otrzymania PDF po płatności.
+  koszyk: 'https://www.naffy.io/mateusz-kielbasinski/biologia-pod-klucz-uze',
   sprzedawca: '',
   email: '',
   regulamin: '', // Adres HTTPS do opublikowanego regulaminu.
